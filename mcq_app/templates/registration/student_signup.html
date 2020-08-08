@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Student Sign up</title>
+    <link rel="stylesheet" href="{% static  'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static  'css/Navigation-Clean.css' %}">
+    <link rel="stylesheet" href="{% static  'css/student_signup.css' %}">
+</head>
+<body>
+    <div id="login-box">
+        <div class="left">
+          <h1>Student Sign up</h1>
+          <form action="{% url 'student:student_signup' %}" method="post">
+
+            {% csrf_token %}
+          
+            <input type="text" name="{{form.email.name}}" placeholder="E-mail" required/>
+            <input type="text" name="{{form.first_name.name}}" placeholder="First Name" />
+            <input type="text" name="{{form.last_name.name}}" placeholder="Last Name" />
+            <input type="password" name="{{form.password1.name}}" placeholder="Password" />
+            <input type="password" name="{{form.password2.name}}" placeholder="Retype password" />
+
+            
+            
+            <input type="submit" name="signup_submit" value="Sign me up" />
+
+            {% if form.errors %}
+            <div id="form-error" style="margin-top: 40px;">
+                <ul>
+                {% for field in form %}
+                {% if field.errors %}
+                    <li style="color: red;font-size: 10px;">{{ field.errors|striptags }}</li>
+                {% endif %}
+                {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+
+          </form>
+        </div>
+        
+        <div class="right" style="background-image: url(&quot;{% static 'images/image1.jpg' %} &quot;);">
+          <span class="loginwith">Sign in with<br />social network</span>
+          
+          <button class="social-signin facebook"><a href="{% url 'social:begin' 'facebook' %}">Log in with facebook</a></button>
+          <button class="social-signin twitter">Log in with Twitter</button>
+          <button class="social-signin google"><a href="{% url 'social:begin' 'google-oauth2' %}">Log in with Google</a></button>
+        </div>
+        <div class="or">OR</div>
+      </div>
+</body>
+</html>
+
+

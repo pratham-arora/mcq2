@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/student_base.css' %}">
+</head>
+<body>
+    <nav class="nav" style="background-image: url(&quot;{% static 'images/image3.jpg' %} &quot;);">
+        <div class="container">
+            <div class="logo">
+                <a href="#">Student</a>
+            </div>
+            <div class="main_list" id="mainListDiv">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Info</a></li>
+                    <li><a href="#">Submissions</a></li>
+                    <li><a href="#">Results</a></li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+            <div class="media_button">
+                <button class="main_media_button" id="mediaButton">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+        
+    <section class="home"></section>
+</body>
+</html>
